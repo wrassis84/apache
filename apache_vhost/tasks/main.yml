@@ -1,0 +1,34 @@
+---
+# tasks file for apache_vhost_ske
+- name: Install apache
+  apt:
+    name: apache2
+    state: latest
+    update_cache: yes
+
+- name: Starts and enable apache service
+  service:
+    name: apache2
+    state: started
+    enabled: true
+
+- name: Ensure directory vhost is present
+  file:
+    path: "/var/www/vhosts/{{ ansible_hostname }}"
+    state: directory
+
+- name: Deliver HTML content
+  copy:
+    src: index.html
+    dest: "/var/www/vhosts/{{ ansible_hostname }}"
+
+- name: Deliver vhost file template
+  template:
+    src: vhost.conf.j2
+    dest: /etc/apache2/conf.d/vhost.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart_apache  
+...
