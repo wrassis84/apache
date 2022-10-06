@@ -1,2 +1,7 @@
+# handlers file for apache_vhost
 ---
-# handlers file for apache_vhost_ske
+- name: Restart apache2
+  service:
+    name: apache2
+    state: restarted
+...
