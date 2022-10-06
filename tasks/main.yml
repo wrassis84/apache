@@ -1,13 +1,14 @@
 ---
 # tasks file for apache_vhost_ske
-- name: Install httpd
+- name: Install apache
   apt:
-    name: apache
+    name: apache2
     state: latest
+    update_cache: yes
 
 - name: Starts and enable apache service
   service:
-    name: apache
+    name: apache2
     state: started
     enabled: true
 
