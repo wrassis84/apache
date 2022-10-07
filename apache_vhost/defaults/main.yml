@@ -1,2 +1,7 @@
 ---
-# defaults file for apache_vhost_ske
+app_user: "sysadmin"
+http_host: "your_domain"
+http_conf: "your_domain.conf"
+http_port: "80"
+disable_default: true
+...

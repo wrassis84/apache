@@ -1,6 +1,10 @@
-# handlers file for apache_vhost
 ---
-- name: Restart apache2
+- name: Reload Apache
+  service:
+    name: apache2
+    state: reloaded
+
+- name: Restart Apache
   service:
     name: apache2
     state: restarted
