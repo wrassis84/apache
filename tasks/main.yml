@@ -1,5 +1,5 @@
 ---
-# tasks file for apache_vhost_ske
+# tasks file for apache
 - name: Install prerequisites
   apt:
     name: {{ item }}
