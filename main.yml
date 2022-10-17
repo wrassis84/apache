@@ -1,0 +1,16 @@
+---
+- name: Use apache_vhost role playbook
+  hosts: all
+  become: true
+
+  pre_tasks:
+    - debug:
+        msg: "Starting web server deploying."
+
+  roles:
+    - apache_vhost
+
+  post_tasks:
+    - debug:
+        msg: "The web server was deployed."
+...
