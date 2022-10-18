@@ -1,21 +1,21 @@
 ---
 [docker_swarm_manager]
-manager001 ansible_host=192.168.0.230
+manager001 ansible_host=192.168.0.230 ansible_become=yes ansible_become_method=sudo
 
 [docker_swarm_worker]
-worker001 ansible_host=192.168.0.231
-worker002 ansible_host=192.168.0.232
+worker001 ansible_host=192.168.0.231 ansible_become=yes ansible_become_method=sudo
+worker002 ansible_host=192.168.0.232 ansible_become=yes ansible_become_method=sudo
 
 [nfs_server]
-192.168.0.230
+192.168.0.230 ansible_host=192.168.0.230 ansible_become=yes ansible_become_method=sudo
 
 [nfs_clients]
-192.168.0.231
-192.168.0.232
+192.168.0.231 ansible_host=192.168.0.231 ansible_become=yes ansible_become_method=sudo
+192.168.0.232 ansible_host=192.168.0.231 ansible_become=yes ansible_become_method=sudo
 
 [webservers]
-192.168.0.231
-192.168.0.232
+192.168.0.231 ansible_host=192.168.0.232 ansible_become=yes ansible_become_method=sudo
+192.168.0.232 ansible_host=192.168.0.232 ansible_become=yes ansible_become_method=sudo
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
