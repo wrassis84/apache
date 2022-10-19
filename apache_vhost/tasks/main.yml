@@ -2,15 +2,16 @@
 # tasks file for apache
 - name: Install prerequisites
   apt:
-    name: "{{ item }}"
-    update_cache: yes
+    name: 
+      - aptitude
     state: latest
     force_apt_get: yes
-    loop: [ 'aptitude' ]
+    update_cache: yes
 
 - name: Install apache
   apt:
     name: apache2
+    update_cache: yes
     state: latest
 
 - name: Starts and enable apache service
@@ -24,6 +25,7 @@
     path: "/var/www/vhosts/{{ ansible_hostname }}"
     state: directory
     owner: "{{ app_user }}"
+    mode: '0755'
 
 - name: Deliver HTML content
   copy:
