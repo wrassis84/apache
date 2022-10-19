@@ -2,6 +2,7 @@ Role Name
 =========
 
 This Ansible role deploy a simple HTML site with apache web server. Enjoy it!
+Original content: https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-apache-on-ubuntu-18-04-pt
 
 Requirements
 ------------
